@@ -14,4 +14,8 @@ class ApiController < ApplicationController
     Message.create(content: params[:message])
     render status: 200, json: {response: "Confirmed"}
   end
+  def messages_clear
+    Message.all.destroy_all
+    render status: 200, json: {response: "Confirmed"}
+  end
 end

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/view_all' => 'site#view_all'
   get '/messages' => 'api#messages_serve'
   post '/message' => 'api#message_save'
+  post '/message/clear' => 'api#messages_clear'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

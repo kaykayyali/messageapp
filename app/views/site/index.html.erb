@@ -13,11 +13,14 @@
     Send a message!
     <%= form_tag('/message', remote: true) do %>
       <div class="form-group">
-        <%= text_field_tag 'message',nil, :class => 'form-control', :id => "input", :onSubmit => "$('#input').empty()" %> <br>
+        <%= text_field_tag 'message',nil, :class => 'form-control', :id => "input" %> <br>
       </div>
       <div class="form-group">
-        <%= button_tag("Send", data: { disable_with: "Sending...", remote: true }, :class => 'btn btn-default') %>
+        <%= button_tag("Send", data: { disable_with: "Sending...", remote: true }, :class => 'btn btn-default send') %>
       </div>
+    <% end %>
+    <%= form_tag('/message/clear', remote: true) do %>
+    <%= button_tag("Clear Messages", data: { disable_with: "Clearing...", remote: true }, :class => 'btn btn-default clear') %>
     <% end %>
   </div>
 </div>
