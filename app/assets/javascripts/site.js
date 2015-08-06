@@ -3,6 +3,8 @@
 $(function(){
   $('.send').on('click', function(){
     console.log("Detected");
-      $('#input').val('');
+      setTimeout(function(){
+        $('#input').val('');
+    }, 1000)
   })
 })
