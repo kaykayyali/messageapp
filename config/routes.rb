@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  get '/' => 'site#index'
   get '/index' => 'site#index', as: :index
   get '/view_all' => 'site#view_all'
   get '/messages' => 'api#messages_serve'
