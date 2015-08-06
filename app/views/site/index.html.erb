@@ -7,6 +7,9 @@
   </div>
 <div class="row">
   <div class="col-lg-6">
+    <%=  react_component('MessageBox', props = {url: '/messages', pollInterval: 3000})  %>
+  </div>
+  <div class="col-lg-6">
     Send a message!
     <%= form_tag('/message', remote: true) do %>
       <div class="form-group">
@@ -16,8 +19,5 @@
         <%= button_tag("Send", data: { disable_with: "Sending...", remote: true }, :class => 'btn btn-default') %>
       </div>
     <% end %>
-  </div>
-  <div class="col-lg-6">
-    <%=  react_component('MessageBox', props = {url: '/messages', pollInterval: 3000})  %>
   </div>
 </div>
