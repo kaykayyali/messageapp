@@ -4,7 +4,8 @@ $(function(){
   $('.send').on('click', function(){
     console.log("Detected");
       setTimeout(function(){
-        $('#input').val('');
+        $('#subject').val('');
+        $('#message').val('');
     }, 1000)
   })
 })
