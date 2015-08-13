@@ -3,12 +3,10 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  after_save :clear_cache
+  
 
-  def clear_cache
-    $redis.del "users"
-  end
-    
+
+
   def sign_in
     self.signed_in = true
     self.save
