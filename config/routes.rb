@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
+  devise_for :users
   get '/' => 'site#index'
   get '/index' => 'site#index', as: :index
   get '/view_all' => 'site#view_all'
   get '/messages' => 'api#messages_serve'
+  get '/presence/users_online' => 'api#users_online'
   post '/message' => 'api#message_save'
   post '/message/clear' => 'api#messages_clear'
+  post '/presence/sign_in/:id' => 'api#user_sign_in'
+  post '/presence/sign_out/:id' => 'api#user_sign_out'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

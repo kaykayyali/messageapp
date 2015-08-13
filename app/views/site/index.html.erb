@@ -16,6 +16,11 @@
   </nav>
 </header>
 <div class="container">
+  <% if current_user.present?  %>
+    <a href="/users/sign_out" data-method="delete">Sign Out</a>
+  <% else %>
+    <a href="/users/sign_in">Sign in</a>
+  <% end %>
   <div class="row">
       <div class="col-lg-12">
         <h1>Welcome to get my car</h1>
@@ -23,12 +28,10 @@
       </div>
   </div>
 <div class="row">
-  <div class="col-lg-4 border">
-    <%=  react_component('MessageBox', props = {url: '/messages', pollInterval: 3000})  %>
+  <div class="col-lg-8">
+    <%=  react_component('MessageBox', props = {url: '/messages', pollInterval: 10000, :user_id => current_user.id} )  %>
   </div>
-  <div class="col-lg-4 border">
-  </div>
-  <div class="col-lg-4 border">
+  <div class="col-lg-4">
     <%= form_tag('/message', remote: true) do %>
       <div class="form-group">
         <label>Enter a message and help the cause!</label>
