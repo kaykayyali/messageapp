@@ -18,12 +18,6 @@ var MessageBox = React.createClass({
       this.setState({users: users});
     }.bind(this));
   },
-  loginUser: function() {
-    $.post('/presence/sign_in/' + this.props.user_id)
-  },
-  logoutUser: function() {
-    $.post('/presence/sign_out/' + this.props.user_id)
-  },
   getInitialState: function() {
     return {
       messages: [],
@@ -31,11 +25,8 @@ var MessageBox = React.createClass({
     };
   },
   componentDidMount: function() {
-    this.loginUser();
-    this.loadFromServer();
+    this.loadFromServer
     pollInterval = setInterval(this.loadFromServer, this.props.pollInterval);
-    
-    window.onbeforeunload = this.logoutUser();
   },
   componentWillUnmount: function() {
     window.clearInterval(pollInterval);
